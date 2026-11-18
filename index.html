@@ -12,25 +12,26 @@
 <style>
 /* Layout: one calm reading column, sticky name bar, figures full-column under each project. */
 :root{
-  --bg:#ffffff; --fg:#1b2333; --muted:#5b6578; --rule:#e3e7ee;
-  --accent:#011f5b; --link:#1d4f9a; --chip:#f2f5f9; --figure:#ffffff;
+  --bg:#ffffff; --fg:#000000; --muted:#555555; --rule:#e2e2e2;
+  --accent:#000000; --link:#000000; --chip:#f4f4f4; --figure:#ffffff;
   --serif:"EB Garamond", Garamond, Georgia, "Times New Roman", serif;
   --sans:Lato, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --col:780px;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f141c; --fg:#e4e8ef; --muted:#9aa5b8; --rule:#253042;
-  --accent:#b9cdf3; --link:#8fb3f0; --chip:#182131; --figure:#ffffff; color-scheme:dark}}
+  --bg:#000000; --fg:#ffffff; --muted:#b0b0b0; --rule:#2a2a2a;
+  --accent:#ffffff; --link:#ffffff; --chip:#141414; --figure:#ffffff; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f141c; --fg:#e4e8ef; --muted:#9aa5b8; --rule:#253042;
-  --accent:#b9cdf3; --link:#8fb3f0; --chip:#182131; --figure:#ffffff; color-scheme:dark}
+  --bg:#000000; --fg:#ffffff; --muted:#b0b0b0; --rule:#2a2a2a;
+  --accent:#ffffff; --link:#ffffff; --chip:#141414; --figure:#ffffff; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--bg);color:var(--fg);font:15.5px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-a{color:var(--link);text-decoration:none}
+a{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:var(--muted)}
+nav a,.brand,.btn{text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:3px}
 a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:2px}
 .wrap{max-width:var(--col);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
