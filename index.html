@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Emmanuel A. Sampson</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Emmanuel Amissah Sampson: urban spatial analytics, commercial location and access, health access and digital transformation. University of Pennsylvania.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: one calm reading column, sticky name bar, figures full-column under each project. */
+:root{
+  --bg:#ffffff; --fg:#1b2333; --muted:#5b6578; --rule:#e3e7ee;
+  --accent:#011f5b; --link:#1d4f9a; --chip:#f2f5f9; --figure:#ffffff;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --col:780px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f141c; --fg:#e4e8ef; --muted:#9aa5b8; --rule:#253042;
+  --accent:#b9cdf3; --link:#8fb3f0; --chip:#182131; --figure:#ffffff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f141c; --fg:#e4e8ef; --muted:#9aa5b8; --rule:#253042;
+  --accent:#b9cdf3; --link:#8fb3f0; --chip:#182131; --figure:#ffffff; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:2px}
+.wrap{max-width:var(--col);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+header.bar .wrap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;padding-block:14px}
+.brand{font:600 1.15rem/1.2 var(--serif);color:var(--accent)}
+.brand:hover{text-decoration:none}
+nav{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:.92rem}
+nav a{color:var(--muted)}
+nav a:hover{color:var(--fg);text-decoration:none}
+
+section{padding-block:44px 8px}
+h2{font:600 1.65rem/1.25 var(--serif);color:var(--accent);margin:0 0 22px;text-wrap:balance}
+h3{font:600 1.22rem/1.3 var(--serif);margin:0;text-wrap:balance}
+p{margin:0}
+
+/* bio */
+.bio{display:grid;grid-template-columns:190px minmax(0,1fr);gap:28px;align-items:start}
+.bio img{width:190px;max-width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:4px;display:block}
+.bio .text{display:grid;gap:14px}
+.role{font-size:.95rem;color:var(--muted)}
+.role strong{color:var(--fg);font-weight:600}
+.links{display:flex;flex-wrap:wrap;gap:6px 0;font-size:.95rem;font-weight:500;margin-top:4px}
+.links a+a::before{content:"·";color:var(--muted);padding:0 10px;display:inline-block}
+.contact{font-size:.92rem;color:var(--muted)}
+.contact code{font:inherit;color:var(--fg);user-select:all}
+.note{margin-top:26px;padding:14px 18px;background:var(--chip);border-radius:4px;font-size:.95rem}
+.interests{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;padding:0;list-style:none}
+.interests li{font-size:.84rem;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;color:var(--muted)}
+
+/* projects */
+.group-label{font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:8px 0 4px}
+.project{display:grid;gap:10px;padding-block:28px;border-top:1px solid var(--rule)}
+.project:first-of-type{border-top:0}
+.meta{font-size:.9rem;color:var(--muted)}
+.status{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.04em;padding:1px 8px;border-radius:999px;background:var(--chip);color:var(--muted);margin-left:6px;vertical-align:1px}
+.plinks{font-size:.92rem;font-weight:500}
+.plinks a+a::before{content:"•";color:var(--muted);padding:0 9px;display:inline-block}
+figure{margin:6px 0 0;background:var(--figure);border:1px solid var(--rule);border-radius:4px;padding:10px}
+figure img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain}
+
+/* field work */
+.field{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 32px;margin-top:6px}
+.field div{display:grid;gap:4px;align-content:start}
+.field h4{margin:0;font:600 1.02rem/1.35 var(--serif)}
+.field p{font-size:.94rem}
+.countries{font-size:.94rem;color:var(--muted);margin-bottom:22px}
+
+/* publications */
+.pubs{list-style:none;margin:0;padding:0;display:grid;gap:22px}
+.pubs li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px}
+.year{font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.pubs .t{font-weight:500}
+.pubs .a,.pubs .v{font-size:.92rem;color:var(--muted)}
+.pubs .a b{color:var(--fg);font-weight:600}
+.pubs .v i{color:var(--fg)}
+.scholar{font-size:.92rem;color:var(--muted);margin:-8px 0 22px}
+
+/* cv */
+.cv-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:9px 16px;border:1px solid var(--accent);border-radius:4px;color:var(--accent);font-weight:500;font-size:.95rem}
+.btn:hover{background:var(--accent);color:var(--bg);text-decoration:none}
+.edu{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
+.edu li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;font-size:.95rem}
+
+footer{margin-top:56px;border-top:1px solid var(--rule)}
+footer .wrap{padding-block:22px 34px;font-size:.86rem;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+@media (max-width:640px){
+  .bio{grid-template-columns:1fr}
+  .bio img{width:150px}
+  .field{grid-template-columns:1fr}
+  .pubs li,.edu li{grid-template-columns:1fr;gap:2px}
+  h2{font-size:1.45rem}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#bio">Emmanuel A. Sampson</a>
+    <nav aria-label="Sections">
+      <a href="#bio">Bio</a>
+      <a href="#projects">Projects</a>
+      <a href="#writing">Writing</a>
+      <a href="#cv">CV</a>
+      <a href="https://www.emmanuelsampson.com/professional/">Professional</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="bio">
+  <div class="bio">
+    <img src="assets/sampson-photo.jpg" alt="Portrait of Emmanuel Amissah Sampson" width="480" height="576">
+    <div class="text">
+      <p class="role"><strong>Master of Urban Spatial Analytics candidate</strong> · Department of City and Regional Planning, University of Pennsylvania · Stuart Weitzman Scholar</p>
+      <p>Emmanuel Amissah Sampson is a Master of Urban Spatial Analytics candidate in the Department of City and Regional Planning at the University of Pennsylvania's Stuart Weitzman School of Design, where he is a Stuart Weitzman Scholar. His research asks how the location choices of firms and public facilities create spillovers across urban networks, how those choices shape access to everyday services and health care, and how digital technology shapes markets and access to land and services in African cities.</p>
+      <p>Before Penn, he spent more than a decade bringing geospatial technology to governments, utilities, mines and donor-funded programmes across Africa: first at <a href="https://www.trimble.com/">Trimble</a> (2015–2023), where he won $85M in competitive bids and secured site permits for national GNSS reference station networks used in land administration, and then as Geospatial Regional Manager for East and Central Africa at <a href="https://leica-geosystems.com/">Leica Geosystems (Hexagon)</a>. Earlier, he co-led value-chain research for the Cocoa Life programme in Ghana and Côte d'Ivoire with CARE International.</p>
+      <p>He holds an MSc in Development Management from the London School of Economics, an MBA with Distinction from Lancaster University, and a BSc in Business Administration with First Class Honours from KNUST, Ghana. He has authored seven journal articles on digital transformation, AI and financial inclusion, and was a Perplexity AI Business Fellow in 2025.</p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/emmanuelsampson/">LinkedIn</a>
+        <a href="https://github.com/emmanuelsampson-prog">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=JZCHGtMAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="Emmanuel_Sampson_CV.pdf">CV</a>
+      </div>
+      <p class="contact">Email: <code>sampsone@upenn.edu</code> · Philadelphia, PA</p>
+    </div>
+  </div>
+  <ul class="interests" aria-label="Research interests">
+    <li>Commercial location and access</li>
+    <li>Health access and policy</li>
+    <li>Digital transformation</li>
+    <li>Spatial analytics</li>
+    <li>Spatial and urban economics</li>
+  </ul>
+  <p class="note"><strong>Mentoring.</strong> I advise students from Ghana and across Africa applying to graduate programmes and scholarships in the United States and the United Kingdom. Feel free to get in touch.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <p class="group-label">Research</p>
+
+  <article class="project">
+    <h3>Pharmacy Closures and Access in Philadelphia, 2023–2025</h3>
+    <p class="meta">Research report · University of Pennsylvania · November 2026</p>
+    <p>When Rite Aid closed its Philadelphia pharmacies, prescriptions were transferred to designated receiving pharmacies. This study builds a 41-location evidence ledger from court records, company transfer tables and local reporting, then routes walking and driving trips from 62 census-tract origins to each former pharmacy and its recipient on a fixed 2025 street network. Population-weighted modelled walks rise from 9.0 to 16.0 minutes, with larger increases in higher-poverty tracts. The report also sets out a spatial difference-in-differences design for measuring actual travel and emissions.</p>
+    <p class="plinks"><a href="https://emmanuelsampson-prog.github.io/pharmacy-access-philadelphia/">Project site</a><a href="https://github.com/emmanuelsampson-prog/pharmacy-access-philadelphia">Code and data</a></p>
+    <figure><img src="assets/pharmacy-transfers.jpg" alt="Map of Philadelphia showing former Rite Aid pharmacies and their designated prescription recipients" loading="lazy" width="1400" height="924"></figure>
+  </article>
+
+  <article class="project">
+    <h3>Grocery Closures and Neighbourhood Access in Chicago, 2021–2025</h3>
+    <p class="meta">Research report · University of Pennsylvania · November 2026</p>
+    <p>When a grocery store leaves, what remains within reach? This study verifies five closures and one replacement opening (Walmart, Whole Foods and Save A Lot) against USDA SNAP retailer records and food inspections, then compares routed access from the same tract origins before and after each event. Kenwood shows the largest loss, with modelled walks rising from 11.5 to 16.1 minutes, while the Save A Lot opening in Englewood restores the proximity lost when Whole Foods closed.</p>
+    <p class="plinks"><a href="https://emmanuelsampson-prog.github.io/grocery-access-chicago/">Project site</a><a href="https://emmanuelsampson-prog.github.io/grocery-access-chicago/outputs/public/Chicago_Grocery_Access_Report.pdf">Report (PDF)</a><a href="https://github.com/emmanuelsampson-prog/grocery-access-chicago">Code and data</a></p>
+    <figure><img src="assets/grocery-change-maps.jpg" alt="Six small maps showing changes in modelled walking time around each Chicago grocery closure or opening" loading="lazy" width="1400" height="1027"></figure>
+  </article>
+
+  <article class="project">
+    <h3>Mapping Philadelphia's Tree Canopy from Satellite Imagery <span class="status">In progress</span></h3>
+    <p class="meta">MUSA 6950 · AI for Urban Sustainability · Fall 2026</p>
+    <p>A deep-learning model that maps tree canopy across Philadelphia from satellite imagery, to show where shade and greening investment would do most good.</p>
+  </article>
+
+  <article class="project">
+    <h3>Siting Indego Bike-Share Stations <span class="status">In progress</span></h3>
+    <p class="meta">MUSA 5500 · Geospatial Data Science in Python · Fall 2026</p>
+    <p>A siting model for new Indego stations in Philadelphia that weighs trip demand, SEPTA ridership and bike-lane coverage.</p>
+  </article>
+
+  <p class="group-label" style="margin-top:28px">Coursework analyses</p>
+
+  <article class="project">
+    <h3>House Price Prediction in Chicago</h3>
+    <p class="meta">MUSA 5080 · Public Policy Analytics · group project</p>
+    <p>Predicts Chicago home sale prices from property characteristics and spatial features, compares models with cross-validation, and maps where and why valuations go wrong.</p>
+    <p class="plinks"><a href="https://emmanuelsampson-prog.github.io/MUSA-5080-portfolio/assignments/Group%20Jollof/assignment5.html">Analysis</a></p>
+    <figure><img src="assets/chicago-house-prices.jpg" alt="Local Moran's I cluster maps of Chicago sale prices for two models" loading="lazy" width="1400" height="980"></figure>
+  </article>
+
+  <article class="project">
+    <h3>Predicting Car-Free Households in Philadelphia</h3>
+    <p class="meta">MUSA 5080 · Public Policy Analytics</p>
+    <p>Builds spatial features and tests how each one changes the cross-validated error of a model predicting the share of car-free households across census tracts.</p>
+    <p class="plinks"><a href="https://emmanuelsampson-prog.github.io/MUSA-5080-portfolio/assignments/Assignment4.html">Analysis</a></p>
+    <figure><img src="assets/car-free-households.jpg" alt="Map of model residuals across Philadelphia census tracts" loading="lazy" width="1344" height="960"></figure>
+  </article>
+
+  <article class="project">
+    <h3>Measuring Poverty in Philadelphia</h3>
+    <p class="meta">MUSA 5080 · Public Policy Analytics</p>
+    <p>Compares tract-level poverty estimates for 2006–2010 and 2013–2017 with their margins of error, and shows which changes are statistically significant.</p>
+    <p class="plinks"><a href="https://emmanuelsampson-prog.github.io/MUSA-5080-portfolio/assignments/Assignment3.html">Analysis</a><a href="https://emmanuelsampson-prog.github.io/MUSA-5080-portfolio/assignments/">All coursework</a></p>
+    <figure><img src="assets/philadelphia-poverty.jpg" alt="Two maps of Philadelphia poverty rates, 2006–2010 and 2013–2017" loading="lazy" width="1344" height="960"></figure>
+  </article>
+
+  <p class="group-label" style="margin-top:28px">Field work in Africa</p>
+  <p class="countries">Full-time and advisory work across more than 30 African countries, including Ghana, Nigeria, Kenya, Tanzania, Uganda, Rwanda, Ethiopia, Liberia, Sierra Leone, Côte d'Ivoire, Senegal, Egypt and South Africa.</p>
+  <div class="field">
+    <div>
+      <h4>National GNSS reference station networks</h4>
+      <p class="meta">Trimble · emerging markets</p>
+      <p>Secured and delivered continuously operating reference station (CORS) networks, from site permits through installation, commissioning and handover, giving surveyors centimetre-level positioning for land titling.</p>
+    </div>
+    <div>
+      <h4>From a lost tender to a $3M contract</h4>
+      <p class="meta">Trimble · Tanzania · World Bank-funded</p>
+      <p>After a $1.5M bid was rejected in 2017, restructured the technical solution and won a $3M contract with the same client in 2023.</p>
+    </div>
+    <div>
+      <h4>Public-private partnership design</h4>
+      <p class="meta">Trimble · government partnership</p>
+      <p>Designed a PPP proposal covering the financing model, risk allocation and partner roles for national geospatial infrastructure.</p>
+    </div>
+    <div>
+      <h4>Survey and mapping for public agencies</h4>
+      <p class="meta">Leica Geosystems · East Africa</p>
+      <p>Led tenders and delivery of survey, mapping and GNSS systems for public agencies and enterprises in Ethiopia, Kenya, Tanzania and Uganda.</p>
+    </div>
+    <div>
+      <h4>Cocoa Life value-chain research</h4>
+      <p class="meta">CARE International · LSE</p>
+      <p>Co-led value-chain research for Mondelēz's $400M Cocoa Life programme across cocoa-growing communities in Ghana and Côte d'Ivoire.</p>
+    </div>
+    <div>
+      <h4>Malaria control in Obuasi</h4>
+      <p class="meta">AngloGold Ashanti · Global Fund</p>
+      <p>Logistics and procurement for the Global Fund-supported malaria-control programme in Obuasi, the mining town where I grew up.</p>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <h2>Writing</h2>
+  <p class="scholar">Full list and citations on <a href="https://scholar.google.com/citations?user=JZCHGtMAAAAJ&amp;hl=en">Google Scholar</a>.</p>
+  <ul class="pubs">
+    <li><span class="year">2026</span><div>
+      <p class="t"><a href="https://www.themanagementjournal.com/article/1339/ethical-ai-in-financial-systems-a-risked-based-framework-for-responsible-innovation">Ethical AI in financial systems: A risked-based framework for responsible innovation</a></p>
+      <p class="a"><b>E. Sampson</b></p>
+      <p class="v"><i>International Journal of Management and Organizational Research</i> 5(1), 104–111.</p>
+    </div></li>
+    <li><span class="year">2025</span><div>
+      <p class="t"><a href="https://wjarr.com/node/10492">Digital sales transformation in Sub-Saharan Africa: Impacts on cross-border trade and global market integration</a></p>
+      <p class="a"><b>E. Sampson</b>, E. Narteh-Kofi</p>
+      <p class="v"><i>World Journal of Advanced Research and Reviews</i> 27(3), 1092–1101.</p>
+    </div></li>
+    <li><span class="year">2025</span><div>
+      <p class="t"><a href="https://www.researchgate.net/publication/396593171_AI-Driven_user_experience_UX_frameworks_to_enhance_trust_and_security_in_US_online_banking">AI-driven user experience (UX) frameworks to enhance trust and security in U.S. online banking</a></p>
+      <p class="a">B. E. Gokah, E. K. Amoako, S. G. Adom, L. K. Abakah, <b>E. Sampson</b></p>
+      <p class="v"><i>Finance &amp; Accounting Research Journal</i> 7(9), 465–478.</p>
+    </div></li>
+    <li><span class="year">2025</span><div>
+      <p class="t"><a href="https://www.ijfmr.com/research-paper.php?id=51702">Optimizing target identification in U.S. capital market mergers and acquisitions through artificial intelligence</a></p>
+      <p class="a">E. Narteh-Kofi, <b>E. Sampson</b>, E. Hattoh, R. Akingbade, V. Agbeve</p>
+      <p class="v"><i>International Journal for Multidisciplinary Research</i> 7(4).</p>
+    </div></li>
+    <li><span class="year">2023</span><div>
+      <p class="t"><a href="https://www.multidisciplinaryfrontiers.com/uploads/archives/20250517165138_FMR-2025-1-121.1.pdf">Harnessing digital transformation for Africa's growth: Opportunities and challenges in the technological era</a></p>
+      <p class="a">F. Ogundipe, O. I. Bakare, <b>E. Sampson</b>, A. Folorunso</p>
+      <p class="v"><i>Journal of Frontiers in Multidisciplinary Research</i> 4(1), 299–308.</p>
+    </div></li>
+    <li><span class="year">2022</span><div>
+      <p class="t"><a href="https://www.multidisciplinaryfrontiers.com/uploads/archives/20251007143906_FMR-2025-2-126.1.pdf">Technology for a sustainable future: Unlocking the power of digital transformation</a></p>
+      <p class="a">F. Ogundipe, <b>E. Sampson</b>, O. I. Bakare, O. Oketola, R. A. Yusuf</p>
+      <p class="v"><i>Journal of Frontiers in Multidisciplinary Research</i> 3(2), 146–156.</p>
+    </div></li>
+    <li><span class="year">2019</span><div>
+      <p class="t"><a href="https://scholar.google.com/scholar?cluster=14448071164122984967&amp;hl=en">Digital transformation and its role in advancing the Sustainable Development Goals (SDGs)</a></p>
+      <p class="a">F. Ogundipe, <b>E. Sampson</b>, O. I. Bakare, O. Oketola, A. Folorunso</p>
+      <p class="v"><i>Transformation</i> 19, 48.</p>
+    </div></li>
+  </ul>
+</section>
+
+<section id="cv">
+  <h2>CV</h2>
+  <div class="cv-row">
+    <a class="btn" href="Emmanuel_Sampson_CV.pdf">Download CV (PDF)</a>
+    <a class="btn" href="https://www.emmanuelsampson.com/professional/">Professional profile</a>
+  </div>
+  <ul class="edu">
+    <li><span class="year">2027</span><span>Master of Urban Spatial Analytics, University of Pennsylvania (expected)</span></li>
+    <li><span class="year">2019</span><span>MBA with Distinction, Lancaster University Management School</span></li>
+    <li><span class="year">2015</span><span>MSc Development Management, London School of Economics and Political Science</span></li>
+    <li><span class="year">2009</span><span>BSc Business Administration, First Class Honours, KNUST, Ghana</span></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Emmanuel Amissah Sampson</span>
+    <span>Philadelphia, PA</span>
+  </div>
+</footer>
+</body>
+</html>
