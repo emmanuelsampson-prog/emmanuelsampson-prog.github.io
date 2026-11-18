@@ -98,6 +98,9 @@ figure img{display:block;width:100%;height:auto;max-height:420px;object-fit:cont
 .edu{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
 .edu li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:16px;font-size:.95rem}
 
+/* justified write-ups */
+.bio .text p:not(.role):not(.contact),.project>p:not(.meta):not(.plinks),.field p:not(.meta),.note,.countries{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+
 footer{margin-top:56px;border-top:1px solid var(--rule)}
 footer .wrap{padding-block:22px 34px;font-size:.86rem;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
 
