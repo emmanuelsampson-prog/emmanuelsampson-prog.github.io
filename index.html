@@ -16,7 +16,7 @@
   --accent:#000000; --link:#000000; --chip:#f4f4f4; --figure:#ffffff;
   --serif:"EB Garamond", Garamond, Georgia, "Times New Roman", serif;
   --sans:Lato, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --col:780px;
+  --col:none;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#000000; --fg:#ffffff; --muted:#b0b0b0; --rule:#2a2a2a;
@@ -34,7 +34,7 @@ a{color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text
 nav a,.brand,.btn{text-decoration:none}
 a:hover{text-decoration:underline;text-underline-offset:3px}
 a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:2px}
-.wrap{max-width:var(--col);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.wrap{max-width:var(--col);margin:0;padding-left:max(4vw,20px,env(safe-area-inset-left,0px));padding-right:max(4vw,20px,env(safe-area-inset-right,0px))}
 
 /* top bar */
 header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
@@ -51,8 +51,8 @@ h3{font:600 1.38rem/1.25 var(--serif);margin:0;text-wrap:balance}
 p{margin:0}
 
 /* bio */
-.bio{display:grid;grid-template-columns:190px minmax(0,1fr);gap:28px;align-items:start}
-.bio img{width:190px;max-width:100%;height:auto;aspect-ratio:5/6;object-fit:cover;border-radius:4px;display:block}
+.bio{display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;align-items:start}
+.bio img{width:220px;max-width:100%;height:auto;aspect-ratio:5/6;object-fit:cover;border-radius:4px;display:block}
 .bio .text{display:grid;gap:14px}
 .role{font-size:.95rem;color:var(--muted)}
 .role strong{color:var(--fg);font-weight:600}
@@ -73,10 +73,10 @@ p{margin:0}
 .plinks{font-size:.92rem;font-weight:700}
 .plinks a+a::before{content:"•";color:var(--muted);padding:0 9px;display:inline-block}
 figure{margin:6px 0 0;background:var(--figure);border:1px solid var(--rule);border-radius:4px;padding:10px}
-figure img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain}
+figure img{display:block;width:100%;height:auto;max-height:520px;object-fit:contain}
 
 /* field work */
-.field{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 32px;margin-top:6px}
+.field{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px 32px;margin-top:6px}
 .field div{display:grid;gap:4px;align-content:start}
 .field h4{margin:0;font:600 1.18rem/1.3 var(--serif)}
 .field p{font-size:.94rem}
